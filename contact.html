@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Session — Voila Productions</title>
+  <meta name="description" content="Book a photography or production session with Voila Productions. Men's, women's, fitness, and event content — directed and produced in the Southwest.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Contact Page Overrides ── */
+    .contact-page-hero {
+      text-align: center;
+      padding: 40px 0 48px;
+    }
+    .contact-page-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .contact-page-hero .tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-light);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Form Wrapper ── */
+    .form-section {
+      padding: 0 0 80px;
+    }
+    .form-wrapper {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Field Groups ── */
+    .input-field {
+      margin-bottom: 28px;
+    }
+    .input-field > label,
+    .label-text {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: var(--ls-wider);
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    /* ── Text Inputs & Textarea ── */
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      background: var(--bg);
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: var(--text);
+      box-sizing: border-box;
+      transition: border-color var(--transition);
+      -webkit-appearance: none;
+    }
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    textarea::placeholder {
+      color: var(--text-lighter);
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--text);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* ── Radio Options ── */
+    .options-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .options-row label,
+    .options-list label {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      accent-color: var(--text);
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* ── Submit Button ── */
+    .submit-wrapper {
+      margin-top: 36px;
+    }
+    .submit-btn {
+      display: block;
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: var(--ls-wider);
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--text);
+      border: 1px solid var(--text);
+      padding: 18px 40px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .submit-btn:hover {
+      background: transparent;
+      color: var(--text);
+    }
+
+    /* ── Success / Error States ── */
+    .form-status {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+    .form-status.visible {
+      display: block;
+    }
+
+    @media (max-width: 480px) {
+      .options-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="container">
+    <div class="service-header">
+      <a href="index.html" class="back-link">← Home</a>
+      <a href="index.html" class="brand-small">Voila Productions</a>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="contact-page-hero fade-in">
+    <div class="container">
+      <h1>Book a Session</h1>
+      <p class="tagline">Tell us about your project — we'll follow up within 48 hours to discuss details and availability.</p>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="form-section">
+    <div class="container">
+      <div class="form-wrapper fade-in">
+        <form action="https://formspree.io/f/xreowggq" method="POST" id="contact-form">
+
+          <div class="input-field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name">
+          </div>
+
+          <div class="input-field">
+            <label for="email">Your email</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email">
+          </div>
+
+          <div class="input-field">
+            <span class="label-text">Session type</span>
+            <div class="options-row">
+              <label><input type="radio" name="session_type" value="Women"> Women</label>
+              <label><input type="radio" name="session_type" value="Men"> Men</label>
+              <label><input type="radio" name="session_type" value="Fitness"> Fitness</label>
+              <label><input type="radio" name="session_type" value="Group"> Group</label>
+              <label><input type="radio" name="session_type" value="Consulting"> Consulting</label>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <span class="label-text">Shoot purpose</span>
+            <div class="options-list">
+              <label><input type="radio" name="purpose" value="Portfolio / Personal"> Portfolio / Personal</label>
+              <label><input type="radio" name="purpose" value="Brand / Product"> Brand / Product</label>
+              <label><input type="radio" name="purpose" value="Swimwear"> Swimwear</label>
+              <label><input type="radio" name="purpose" value="Fitness"> Fitness</label>
+              <label><input type="radio" name="purpose" value="Event"> Event</label>
+              <label><input type="radio" name="purpose" value="Other"> Other</label>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label for="budget">Budget (optional)</label>
+            <input type="text" id="budget" name="budget" placeholder="$300 / $500 / $1,000+">
+          </div>
+
+          <div class="input-field">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" name="message" rows="5" placeholder="Share the concept, location, preferred dates, and any reference links (Instagram, Pinterest, etc.)."></textarea>
+          </div>
+
+          <div class="submit-wrapper">
+            <button type="submit" class="submit-btn">Send Inquiry</button>
+          </div>
+        </form>
+
+        <p class="form-status" id="form-status">
+          Thank you — your inquiry has been received. We'll be in touch within 48 hours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Voila Productions</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Handle Formspree AJAX submission for better UX
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const btn = form.querySelector('.submit-btn');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          status.classList.add('visible');
+        } else {
+          btn.textContent = 'Something went wrong — try again';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Network error — try again';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
