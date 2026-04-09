@@ -81,3 +81,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+
+/* --- Contact Form (contact.html) --- */
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  const status = document.getElementById('form-status');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(contactForm);
+    const btn = contactForm.querySelector('.submit-btn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        contactForm.style.display = 'none';
+        status.classList.add('visible');
+      } else {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Network error — try again';
+      btn.disabled = false;
+    }
+  });
+}

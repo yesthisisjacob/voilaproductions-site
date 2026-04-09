@@ -257,36 +257,5 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    // Handle Formspree AJAX submission for better UX
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const btn = form.querySelector('.submit-btn');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          form.style.display = 'none';
-          status.classList.add('visible');
-        } else {
-          btn.textContent = 'Something went wrong — try again';
-          btn.disabled = false;
-        }
-      } catch {
-        btn.textContent = 'Network error — try again';
-        btn.disabled = false;
-      }
-    });
-  </script>
 </body>
 </html>
